@@ -228,7 +228,7 @@ const Navbar = () => {
                 {/* Logo - Center */}
                 <div className="flex-shrink-0 flex justify-center flex-1 lg:flex-initial logo-area">
                   <Link href="/" style={{ textDecoration: 'none' }}>
-                    <Image src="/img/logo.png" alt="Logo" width={200} height={200} />
+                    <Image src="/img/jamali_logo.webp" alt="Logo" width={200} height={200} />
                   </Link>
                 </div>
 
