@@ -3,15 +3,25 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const HERO_IMAGES = [
-  { src: '/img/jamali express - banner bioderma - hamza.png', url: '/products?search=pack' },
-  { src: '/img/jamalihero2.png', url: '/products?search=pack' },
-];
-
 export default function HeroSection() {
   const [bgIndex, setBgIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const HERO_IMAGES = isMobile
+  ? [
+    { src: '/img/mobilejamalihero.png', url: '/products?search=pack' },
+        { src: '/img/mobileherojamali2.png', url: '/products?search=pack' },
+      ]
+      : [
+        { src: '/img/jamalihero.png', url: '/products?search=pack' },
+        { src: '/img/jamalihero2.png', url: '/products?search=pack' },
+      ];
 
-  // Image Slider Effect (Every 5 seconds)
+  useEffect(() => {
+  const checkMobile = () => setIsMobile(window.innerWidth <= 640);
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+  return () => window.removeEventListener('resize', checkMobile);
+}, []);// Image Slider Effect (Every 5 seconds)
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prev) => (prev + 1) % HERO_IMAGES.length);
@@ -20,10 +30,10 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-[300px] sm:h-[400px] md:h-[600px] lg:h-[800px] mt-24 md:mt-30 overflow-hidden bg-gray-50">
+    <section className="relative w-full h-[700px] sm:h-[400px] md:h-[600px] lg:h-[800px] mt-24 md:mt-30 overflow-hidden bg-gray-50">
       {HERO_IMAGES.map((item, idx) => (
         <Link 
-          key={item.src} 
+          key={item.src}
           href={item.url}
           className="absolute inset-0 transition-opacity duration-1000"
           style={{

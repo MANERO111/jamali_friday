@@ -727,11 +727,11 @@ const CapillaireShowcase = () => {
         }}
       />
       <div className='flex flex-col md:flex-row w-full mt-20 gap-4 px-4 md:px-10'>
-        <div className='relative flex-1 h-[400px] md:h-[600px]'>
-          <Image src="/img/jamali express - banner solaire - hamza.png" alt="banner" loading="lazy" fill className='object-cover' />
+        <div className='relative w-full md:flex-1 h-[250px] md:h-[600px]'>
+          <Image src="/img/jamali-banner-solaire-hamza.png" alt="banner" loading="lazy" fill className='object-cover' />
         </div>
-        <div className='relative flex-1 h-[400px] md:h-[600px]'>
-          <Image src="/img/jamali express - banner pigm -hamza.png" alt="banner" loading="lazy" fill className='object-cover' />
+        <div className='relative w-full md:flex-1 h-[250px] md:h-[600px]'>
+          <Image src="/img/jamali-banner-pigm-hamza.png" alt="banner" loading="lazy" fill className='object-cover' />
         </div>
       </div>
       <style>{`
