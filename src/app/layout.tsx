@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
-import Navbar from "@/components/navbar";
+// Default Navbar (Uncomment after Black Friday ends)
+// import Navbar from "@/components/navbar";
+
+// Black Friday Navbar (Comment this out and uncomment Navbar after Black Friday ends)
+import Navbar from "@/components/bf_navbar";
+
 import { AuthProvider } from "@/contexts/AuthContext";
 import { CartProvider } from "@/contexts/CartContext";
 
