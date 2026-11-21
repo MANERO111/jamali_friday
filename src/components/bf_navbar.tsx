@@ -130,40 +130,40 @@ const BfNavbar = () => {
   return (
     <>
       <div className="w-full relative navbar-font">
-        {/* Fixed Header Container wrapping Announcement bar + Main Navbar so nothing ever overlaps */}
-        <header className="fixed top-0 left-0 right-0 w-full z-[100]">
-          
-          {/* Black Friday Announcement Bar */}
-          <div className="w-full bg-[#0a0a0d] text-white border-b border-red-600/30 py-2 px-4 relative z-20">
-            <div className="max-w-screen-xl mx-auto flex items-center justify-between text-xs">
-              <div className="flex items-center gap-2.5">
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white font-extrabold tracking-widest text-[10px] uppercase shadow-md shadow-red-950/60 animate-pulse">
-                  <Flame size={12} className="text-yellow-300" />
-                  BLACK FRIDAY
-                </span>
-                <span className="text-neutral-300 hidden sm:inline text-xs font-light tracking-wide">
-                  Remises exceptionnelles jusqu&apos;à <span className="text-amber-400 font-bold">-70%</span> sur les soins d&apos;exception
-                </span>
-              </div>
-              
-              <Link 
-                href="/products?search=pack" 
-                className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 transition-colors group"
-              >
-                <span>Voir les offres</span>
-                <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
-              </Link>
+        {/* Black Friday Announcement Bar - positioned at the normal document flow so when you scroll down it disappears naturally */}
+        <div className="w-full bg-[#0a0a0d] text-white border-b border-red-600/30 py-2 px-4 relative z-[101]">
+          <div className="max-w-screen-xl mx-auto flex items-center justify-between text-xs">
+            <div className="flex items-center gap-2.5">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-red-600 to-rose-600 text-white font-extrabold tracking-widest text-[10px] uppercase shadow-md shadow-red-950/60 animate-pulse">
+                <Flame size={12} className="text-yellow-300" />
+                BLACK FRIDAY
+              </span>
+              <span className="text-neutral-300 hidden sm:inline text-xs font-light tracking-wide">
+                Remises exceptionnelles jusqu&apos;à <span className="text-amber-400 font-bold">-70%</span> sur les soins d&apos;exception
+              </span>
             </div>
+            
+            <Link 
+              href="/products?search=pack" 
+              className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 transition-colors group"
+            >
+              <span>Voir les offres</span>
+              <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+            </Link>
           </div>
+        </div>
 
-          {/* Main Dark Navbar */}
-          <nav 
-            className={`w-full transition-all duration-300 ${
-              isScrolled 
-                ? 'bg-[#111116]/95 backdrop-blur-md shadow-2xl shadow-black/70 border-b border-neutral-800' 
-                : 'bg-[#141419] border-b border-neutral-800/80 shadow-md shadow-black/30'
-            }`}
-          >
+        {/* Main Dark Navbar - stays fixed at the top */}
+        <nav 
+          className={`fixed top-0 left-0 right-0 w-full z-[100] transition-all duration-300 ${
+            isScrolled 
+              ? 'bg-[#111116]/95 backdrop-blur-md shadow-2xl shadow-black/70 border-b border-neutral-800' 
+              : 'bg-[#141419] border-b border-neutral-800/80 shadow-md shadow-black/30'
+          }`}
+          style={{
+            transform: isScrolled ? 'translateY(0)' : 'translateY(37px)',
+          }}
+        >
             <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between py-3.5 lg:py-4">
 
@@ -440,10 +440,9 @@ const BfNavbar = () => {
               </div>
             </div>
           </nav>
-        </header>
 
-        {/* Spacer so the page content doesn't get hidden behind the fixed header */}
-        <div className="h-[125px] sm:h-[135px] lg:h-[145px]" />
+        {/* Spacer so the page content doesn't get hidden behind the fixed navbar */}
+        <div className="h-[90px] sm:h-[100px] lg:h-[100px]" />
       </div>
 
       <LoginModal
