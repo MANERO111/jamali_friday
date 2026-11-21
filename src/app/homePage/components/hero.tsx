@@ -30,7 +30,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-[700px] sm:h-[400px] md:h-[600px] lg:h-[800px] mt-24 md:mt-10 overflow-hidden bg-gray-50">
+    <section className="relative w-full h-[700px] sm:h-[400px] md:h-[600px] lg:h-[800px]  overflow-hidden bg-gray-50">
       {HERO_IMAGES.map((item, idx) => (
         <Link 
           key={item.src}
